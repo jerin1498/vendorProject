@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<%- include('base/header'); -%>
+</head>
+<body>
+    <%- include('base/navbar'); -%>
+    <div id='vendor-id' data-vendorid="<%= vendor.id %>"></div>
+    <div class='row'>
+        <div class=coloum>
+            <div class='jumbotron card-element'>
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= vendor.name %></h5>
+                        <p class="card-text"><%= vendor.email %></p>
+                        
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">phone: <%= vendor.mobileNumber %></li>
+                    </ul>
+                </div>   
+            </div>
+        </div>
+        <div class='coloum'>
+            <h4>select the product to add to this vendor</h4>
+            <form action="/vendorDetail/<%= vendor.id %>" id='add-product-form'>
+                <% products.forEach(function(product){ %>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input check-box" id="<%= product.id%>" value="<%= product.id%>" name="<%= product.id%>">
+                    <label class="custom-control-label" for="<%= product.id%>" value="<%= product.id%>"><%= product.name%></label>
+                </div>
+                <% }); %>
+                <button type="submit" class="btn btn-secondary form-button">Add</button>
+            </form>
+        </div>
+        <div class='coloum'>
+                <div class='show-detail'>
+                    <h4>Click product to show detail</h4>
+                </div>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='coloum'>
+            <a href='/vendorDetail/<%= vendor.id %>'>
+                <button type="button" class="btn btn-dark add">View Vendor</button>
+            </a>
+            
+        </div>
+    </div>
+</body>
+<%- include('base/scripts'); -%>
+<script src='/js/addProductToVendor.js'></script>
+</html>

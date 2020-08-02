@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<%- include('base/header'); -%>
+</head>
+<body>
+    <%- include('base/navbar'); -%>
+    <div id='vendor-id' data-vendorid="<%= vendor.id %>"></div>
+    <div class='row'>
+        <div class=coloum>
+            <div class='jumbotron card-element'>
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= vendor.name %></h5>
+                        <p class="card-text"><%= vendor.email %></p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">phone: <%= vendor.mobileNumber %></li>
+                    </ul>
+                    <button type="button" id='delete-button' class="btn btn-danger">Delete This Vendor</button>
+                </div>   
+            </div>
+            <div class='row'>
+            <a href='/addProductToVendor/<%= vendor.id %>'>
+                <button type="button" class="btn btn-dark add">Add Product To This Vendor</button>
+            </a> 
+            </div>
+        </div>
+        <div class='coloum'>
+            <h4>products of this vendor</h4>
+            <div class='product-users'>
+                <% vendor.product.forEach(function(product){ %>
+                    <div class="card" style="width: 18rem;">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title"><%= product.name %></h5>
+                        </div>
+                        <div class="card-body">
+                          <a href="/productDetail/<%= product._id %>" class="card-link">detail</a>
+                        </div>
+                      </div>   
+                  <% }); %>
+            </div>
+        </div>
+    </div>
+</body>
+<%- include('base/scripts'); -%>
+<script src='/js/deleteVendor.js'></script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<%- include('base/header'); -%>
+</head>
+<body>
+    <%- include('base/navbar'); -%>
+    <div class='jumbotron'>
+      <h3>vendor list page</h3>
+    <% vendors.forEach(function(vendor){ %>
+        <div class="card card-element" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"><%= vendor.name %></h5>
+              <p class="card-text"><%= vendor.email %></p>
+            </div>
+            <div class="card-body">
+              <a href="/vendorDetail/<%= vendor.id %>" class="card-link">Vendor Detail</a>
+            </div>
+          </div>   
+      <% }); %>
+    </div>
+</body>
+<%- include('base/scripts'); -%>
+</html>

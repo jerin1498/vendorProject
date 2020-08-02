@@ -1,0 +1,30 @@
+.card-element{
+    display: inline-block;
+    margin: 10px 10px;
+}
+
+.card {
+    padding: 20px 20px;
+}
+
+.product-users {
+    display: flex;
+}
+
+.add {
+    padding: 20px 30px;
+    margin: 0px 30px;
+}
+
+.form-button {
+    margin: 20px 20px;
+}
+
+.show-detail {
+    margin: 0 50px;
+}
+
+.create-form {
+    margin: 30px;
+    width: 30%
+}
